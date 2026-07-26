@@ -180,5 +180,22 @@
   }, { threshold: .6 });
   document.querySelectorAll("[data-value]").forEach((el) => statObserver.observe(el));
 
+  const logoExtensions = ["webp", "png", "jpg", "jpeg"];
+  document.querySelectorAll("img[data-logo]").forEach((img) => {
+    const name = img.dataset.logo;
+    let extensionIndex = 0;
+    const tryNextLogo = () => {
+      if (extensionIndex >= logoExtensions.length) {
+        img.removeAttribute("src");
+        img.classList.remove("loaded");
+        return;
+      }
+      img.src = `/assets/logos/${name}.${logoExtensions[extensionIndex++]}`;
+    };
+    img.addEventListener("load", () => img.classList.add("loaded"), { once: true });
+    img.addEventListener("error", tryNextLogo);
+    tryNextLogo();
+  });
+
   document.getElementById("year")?.replaceChildren(document.createTextNode(String(new Date().getFullYear())));
 })();
