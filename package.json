@@ -3,6 +3,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "check": "node --check assets/site.js && node --check assets/pricing.js && node --check assets/consultation.js && node --check functions/api/consultation.js"
+    "check": "node --check assets/site.js && node --check assets/routes.js && node --check assets/globe.js && node --check assets/pricing.js && node --check assets/consultation.js && node --check functions/api/consultation.js"
   }
 }
