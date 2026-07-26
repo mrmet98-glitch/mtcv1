@@ -230,14 +230,15 @@ img, svg { max-width: 100%; display: block; }
 .page-hero { padding: 148px 0 68px; }
 .page-hero .lede { max-width: 780px; }
 
-.animated-hero { min-height: 690px; overflow: hidden; }
-.service-orbit { position: relative; width: 270px; height: 150px; margin: 46px auto -20px; border: 1px solid rgba(131,174,246,.2); border-bottom: 0; border-radius: 150px 150px 0 0; }
-.service-orbit span { position: absolute; z-index: 2; left: calc(50% - 22px); top: -22px; width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--line-strong); border-radius: 50%; background: #111a2b; animation: plane-float 3s ease-in-out infinite; }
-.service-orbit i { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 18px currentColor; animation: orbit-pulse 2.4s ease-in-out infinite; }
-.service-orbit i:nth-of-type(1) { left: -5px; bottom: -5px; }.service-orbit i:nth-of-type(2) { left: 21%; top: 20%; animation-delay: -.5s; }.service-orbit i:nth-of-type(3) { right: 21%; top: 20%; animation-delay: -1s; }.service-orbit i:nth-of-type(4) { right: -5px; bottom: -5px; animation-delay: -1.5s; }
+.services-hero { min-height: 0; padding-bottom: 50px; }
 .service-detail-grid .service-card { text-align: center; }
 .service-detail-grid .icon-box { margin-inline: auto; }
 .service-detail-grid li::before { content: "✓"; }
+.service-detail-grid .service-card::after { content: ""; position: absolute; left: -45%; bottom: 0; width: 42%; height: 2px; background: linear-gradient(90deg, transparent, var(--blue), transparent); opacity: 0; }
+.service-detail-grid .service-card.visible::after { animation: card-route 1.15s .25s ease-out forwards; }
+.service-detail-grid .service-card.visible .icon-box { animation: icon-arrival .7s .12s cubic-bezier(.2,.8,.2,1) both; }
+.service-detail-grid .service-card:hover .icon-box { transform: translateY(-5px) rotate(-4deg); box-shadow: 0 12px 28px rgba(131,174,246,.12); }
+.service-detail-grid .icon-box { transition: transform .2s ease, box-shadow .2s ease; }
 
 .journey-hero { position: relative; min-height: 560px; overflow: hidden; }
 .sky-route { position: absolute; left: 10%; right: 10%; bottom: 65px; height: 1px; border-top: 1px dashed rgba(131,174,246,.28); }
@@ -252,9 +253,9 @@ img, svg { max-width: 100%; display: block; }
 .journey-stop p { max-width: 590px; margin: 10px 0 0; color: var(--muted); font-size: .88rem; }
 .journey-code { color: var(--faint); font: 700 .68rem "Courier New", monospace; writing-mode: vertical-rl; }
 
-@keyframes plane-float { 50% { transform: translateY(-10px) rotate(-5deg); } }
-@keyframes orbit-pulse { 50% { transform: scale(1.6); opacity: .45; } }
-@keyframes fly-route { 0% { left: 0; transform: translateY(8px) rotate(-8deg); } 50% { transform: translateY(-12px) rotate(4deg); } 100% { left: calc(100% - 40px); transform: translateY(5px) rotate(-4deg); } }
+@keyframes card-route { 0% { left: -45%; opacity: 0; } 20% { opacity: 1; } 100% { left: 105%; opacity: 0; } }
+@keyframes icon-arrival { 0% { opacity: 0; transform: translate(-24px,12px) rotate(-18deg) scale(.75); } 70% { transform: translate(3px,-3px) rotate(3deg) scale(1.04); } 100% { opacity: 1; transform: none; } }
+@keyframes fly-route { 0% { left: 0; transform: translateY(8px) rotate(-12deg); } 25% { transform: translateY(-72px) rotate(-7deg); } 50% { transform: translateY(-112px) rotate(0); } 75% { transform: translateY(-72px) rotate(7deg); } 100% { left: calc(100% - 40px); transform: translateY(5px) rotate(12deg); } }
 
 .billing-switch { display: inline-grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.03); margin-top: 32px; }
 .billing-switch button { border: 0; border-radius: 999px; padding: 10px 15px; background: transparent; color: var(--muted); cursor: pointer; font-size: .76rem; font-weight: 800; }
@@ -384,7 +385,7 @@ img, svg { max-width: 100%; display: block; }
   .cta-panel { padding: 30px 21px; grid-template-columns: 1fr; }
   .cta-actions { min-width: 0; }
   .page-hero { padding: 126px 0 54px; }
-  .animated-hero { min-height: 600px; }
+  .services-hero { padding-bottom: 34px; }
   .journey-stop { grid-template-columns: 66px 1fr; gap: 20px; }
   .journey-marker { width: 66px; height: 66px; }
   .journey-line { left: 33px; }
