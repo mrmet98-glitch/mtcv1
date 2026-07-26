@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Monthly and annual retainer pricing for Midnight Travel Consulting, scaled by monthly flight-booking volume.">
+  <meta name="theme-color" content="#05070d">
+  <title>Pricing | Midnight Travel Consulting</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body data-page="pricing">
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="eyebrow reveal">Pricing</div>
+        <h1 class="h1 reveal" style="margin-top:18px; max-width:1000px;">One clear retainer. <span class="gradient">Scaled to how much you actually travel.</span></h1>
+        <p class="lede reveal">The retainer is based on average monthly flight-booking volume—not a percentage of airfare. Ticket costs remain separate and are presented before booking.</p>
+        <div class="billing-switch reveal" role="group" aria-label="Billing frequency">
+          <button type="button" class="active" data-billing="monthly">Billed Monthly</button>
+          <button type="button" data-billing="annual">Billed Annually <small>Save 15%</small></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm">
+      <div class="container">
+        <div class="pricing-tool reveal">
+          <div><strong>Which tier fits your current volume?</strong><p>Select your average monthly flight bookings and the closest tier will be highlighted.</p></div>
+          <select id="volumeSelector" aria-label="Average monthly flight bookings">
+            <option value="starter">1–5 flight bookings / month</option>
+            <option value="standard">6–15 flight bookings / month</option>
+            <option value="growth">16–30 flight bookings / month</option>
+            <option value="enterprise">31+ flight bookings / month</option>
+          </select>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="price-card recommended" data-tier="starter">
+            <span class="reco-badge">Your fit</span>
+            <small>Starter</small>
+            <h3>Essential Travel Desk</h3>
+            <div class="range">1–5 flight bookings / month</div>
+            <div class="price"><strong data-monthly="$450" data-annual="$383">$450</strong> <span>/ month</span></div>
+            <div class="price-billing" data-monthly-copy="Billed monthly" data-annual-copy="$4,590 billed annually">Billed monthly</div>
+            <ul>
+              <li>Flight sourcing and booking support</li>
+              <li>Priced options for every requested trip</li>
+              <li>Cash-versus-points research when relevant</li>
+              <li>Frequent-flyer setup for core travelers</li>
+              <li>Initial travel-card fit review</li>
+            </ul>
+            <a class="btn btn-secondary" href="/consultation/?tier=starter">Start a Free Consultation</a>
+          </article>
+
+          <article class="price-card highlight" data-tier="standard">
+            <span class="reco-badge">Your fit</span>
+            <small>Standard</small>
+            <h3>Managed Travel Desk</h3>
+            <div class="range">6–15 flight bookings / month</div>
+            <div class="price"><strong data-monthly="$900" data-annual="$765">$900</strong> <span>/ month</span></div>
+            <div class="price-billing" data-monthly-copy="Billed monthly" data-annual-copy="$9,180 billed annually">Billed monthly</div>
+            <ul>
+              <li>Everything in Essential</li>
+              <li>Multiple traveler and loyalty-account management</li>
+              <li>Airline business-program evaluation</li>
+              <li>Quarterly spend and card strategy review</li>
+              <li>Monthly travel activity summary</li>
+            </ul>
+            <a class="btn btn-primary" href="/consultation/?tier=standard">Start a Free Consultation</a>
+          </article>
+
+          <article class="price-card" data-tier="growth">
+            <span class="reco-badge">Your fit</span>
+            <small>Growth</small>
+            <h3>Priority Travel Desk</h3>
+            <div class="range">16–30 flight bookings / month</div>
+            <div class="price"><strong data-monthly="$1,600" data-annual="$1,360">$1,600</strong> <span>/ month</span></div>
+            <div class="price-billing" data-monthly-copy="Billed monthly" data-annual-copy="$16,320 billed annually">Billed monthly</div>
+            <ul>
+              <li>Everything in Managed</li>
+              <li>Priority turnaround on flight requests</li>
+              <li>Monthly travel-trend and airline-spend review</li>
+              <li>Proactive card and program recommendations</li>
+              <li>Higher-complexity and multi-city support</li>
+            </ul>
+            <a class="btn btn-secondary" href="/consultation/?tier=growth">Start a Free Consultation</a>
+          </article>
+
+          <article class="price-card" data-tier="enterprise">
+            <span class="reco-badge">Your fit</span>
+            <small>Enterprise</small>
+            <h3>Custom Travel Program</h3>
+            <div class="range">31+ flight bookings / month</div>
+            <div class="price"><strong data-monthly="Custom" data-annual="Custom">Custom</strong></div>
+            <div class="price-billing" data-monthly-copy="Scoped to volume and service level" data-annual-copy="Annual terms available">Scoped to volume and service level</div>
+            <ul>
+              <li>Everything in Priority</li>
+              <li>Dedicated service expectations and response times</li>
+              <li>Company-wide traveler and loyalty rollout</li>
+              <li>Custom reporting and account reviews</li>
+              <li>Group and high-complexity travel scoping</li>
+            </ul>
+            <a class="btn btn-secondary" href="/consultation/?tier=enterprise">Discuss a Custom Plan</a>
+          </article>
+        </div>
+
+        <div class="pricing-notes">
+          <div class="note-card reveal"><strong>How volume is counted</strong><p>One flight booking means one ticketed passenger itinerary. A connecting or round-trip itinerary is not counted as a separate booking for every segment.</p></div>
+          <div class="note-card reveal"><strong>How tiers adjust</strong><p>The working tier can be reviewed against a trailing three-month average so a temporary spike does not automatically reset the relationship.</p></div>
+          <div class="note-card reveal"><strong>What may require custom scope</strong><p>Large groups, unusually complex changes, 24/7 coverage, or extensive non-air travel can be quoted separately before work begins.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow reveal">Pricing Questions</div><h2 class="h2 reveal" style="margin-top:16px;">What the retainer does—and does not—cover.</h2></div>
+          <div class="faq reveal" style="min-width:min(100%,540px)">
+            <div class="faq-item open"><button class="faq-q" aria-expanded="true"><span>Are airline tickets included in the retainer?</span><span>+</span></button><div class="faq-a" style="max-height:150px"><p>No. Airfare is separate and shown for approval before booking. The retainer covers research, recommendations, booking support, points analysis, and ongoing program strategy.</p></div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Why not charge a percentage of travel spend?</span><span>+</span></button><div class="faq-a"><p>A volume-based retainer keeps the consulting fee separate from the fare and avoids creating an incentive for more expensive tickets.</p></div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Is annual billing required?</span><span>+</span></button><div class="faq-a"><p>No. Monthly billing is available at every published tier. Annual billing is optional and reflects a 15% discount for the longer commitment.</p></div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Is pricing finalized before the consultation?</span><span>+</span></button><div class="faq-a"><p>The published tiers are a strong starting point. The free consultation confirms volume, passenger count, complexity, response expectations, and any special requirements before a final proposal is issued.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm">
+      <div class="container"><div class="cta-panel reveal"><div><h2>Not sure which tier applies?</h2><p>Complete the free consultation intake. No fee is charged and no pricing is confirmed until the travel setup has been reviewed with you.</p></div><div class="cta-actions"><a class="btn btn-primary" href="/consultation/">Start the Intake <span>↗</span></a><a class="btn btn-secondary" href="/">Return Home</a></div></div></div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/pricing.js" defer></script>
+</body>
+</html>

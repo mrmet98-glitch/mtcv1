@@ -1,0 +1,6 @@
+name = "midnight-travel-consulting"
+compatibility_date = "2026-07-26"
+pages_build_output_dir = "."
+
+# Add the D1 binding named DB in the Cloudflare Pages dashboard.
+# Keeping the database ID out of this file prevents a placeholder ID from breaking deployment.
