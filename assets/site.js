@@ -10,7 +10,11 @@
       </svg>
     </span>`;
 
-  const navHref = (anchor) => page === "home" ? `#${anchor}` : `/${anchor === "home" ? "" : `#${anchor}`}`;
+  const navHref = (anchor) => {
+    if (anchor === "services") return "/services/";
+    if (anchor === "process") return "/how-it-works/";
+    return page === "home" ? `#${anchor}` : `/#${anchor}`;
+  };
 
   const header = document.getElementById("site-header");
   if (header) {
@@ -25,8 +29,8 @@
             </span>
           </a>
           <div class="nav-links">
-            <a href="${navHref("services")}" ${page === "home" ? "" : ""}>Services</a>
-            <a href="${navHref("process")}">How It Works</a>
+            <a href="${navHref("services")}" class="${page === "services" ? "active" : ""}">Services</a>
+            <a href="${navHref("process")}" class="${page === "process" ? "active" : ""}">How It Works</a>
             <a href="${navHref("results")}">Results</a>
             <a href="${navHref("about")}">About</a>
             <a href="/pricing/" class="${page === "pricing" ? "active" : ""}">Pricing</a>
@@ -71,6 +75,7 @@
             <div class="footer-col">
               <strong>Explore</strong>
               <a href="${navHref("services")}">Services</a>
+              <a href="${navHref("process")}">How It Works</a>
               <a href="${navHref("results")}">Experience</a>
               <a href="${navHref("about")}">About</a>
             </div>
