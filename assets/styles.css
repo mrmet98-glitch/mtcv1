@@ -198,13 +198,15 @@ img, svg { max-width: 100%; display: block; }
 .board-marquee { display: flex; justify-content: space-between; gap: 20px; padding: 15px 18px; border-bottom: 1px solid var(--line); background: linear-gradient(90deg, rgba(131,174,246,.08), rgba(178,156,255,.04)); color: #d9e3f4; font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .board-head, .board-row { display: grid; grid-template-columns: .72fr .78fr 1.2fr 1.25fr .72fr; gap: 12px; align-items: center; }
 .board-head { padding: 10px 18px; color: var(--faint); font-size: .62rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; border-bottom: 1px solid var(--line); }
+.board-head span { text-align: center; }
 .board-row { min-height: 94px; padding: 13px 18px; border-bottom: 1px solid var(--line); }
 .board-row:last-child { border-bottom: none; }
 .board-row:hover { background: rgba(255,255,255,.025); }
-.board-time, .board-ref { color: #aeb8ca; font-size: .77rem; font-weight: 800; }
+.board-time, .board-ref { color: #aeb8ca; font-size: .77rem; font-weight: 800; text-align: center; }
+.board-stat, .board-label { text-align: center; }
 .board-stat strong { display: block; font-family: "Courier New", monospace; font-size: clamp(1.55rem, 3vw, 2.65rem); letter-spacing: .02em; line-height: 1; color: #f8fbff; text-shadow: 0 0 18px rgba(131,174,246,.2); }
 .board-stat small { display: block; margin-top: 7px; color: var(--muted); font-size: .72rem; }
-.board-status { justify-self: end; width: fit-content; padding: 7px 10px; border: 1px solid var(--line); border-radius: 999px; font-size: .65rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.board-status { justify-self: center; width: fit-content; padding: 7px 10px; border: 1px solid var(--line); border-radius: 999px; font-size: .65rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
 .board-status.tracked { color: #c6dcff; background: rgba(131,174,246,.08); border-color: rgba(131,174,246,.2); }
 .board-status.ticketed { color: #d8cdff; background: rgba(178,156,255,.08); border-color: rgba(178,156,255,.2); }
 .board-status.planned { color: #c9fff7; background: rgba(112,222,209,.07); border-color: rgba(112,222,209,.2); }
@@ -237,8 +239,11 @@ img, svg { max-width: 100%; display: block; }
 .service-detail-grid .service-card::after { content: ""; position: absolute; left: -45%; bottom: 0; width: 42%; height: 2px; background: linear-gradient(90deg, transparent, var(--blue), transparent); opacity: 0; }
 .service-detail-grid .service-card.visible::after { animation: card-route 1.15s .25s ease-out forwards; }
 .service-detail-grid .service-card.visible .icon-box { animation: icon-arrival .7s .12s cubic-bezier(.2,.8,.2,1) both; }
+.service-detail-grid .service-card.visible .num { animation: number-arrival .8s .18s ease both; }
 .service-detail-grid .service-card:hover .icon-box { transform: translateY(-5px) rotate(-4deg); box-shadow: 0 12px 28px rgba(131,174,246,.12); }
+.service-detail-grid .service-card:hover .num { color: rgba(131,174,246,.16); transform: translate(-5px,4px); }
 .service-detail-grid .icon-box { transition: transform .2s ease, box-shadow .2s ease; }
+.service-detail-grid .num { transition: transform .25s ease, color .25s ease; }
 
 .journey-hero { position: relative; min-height: 560px; overflow: hidden; }
 .sky-route { position: absolute; left: 10%; right: 10%; bottom: 65px; height: 1px; border-top: 1px dashed rgba(131,174,246,.28); }
@@ -255,6 +260,7 @@ img, svg { max-width: 100%; display: block; }
 
 @keyframes card-route { 0% { left: -45%; opacity: 0; } 20% { opacity: 1; } 100% { left: 105%; opacity: 0; } }
 @keyframes icon-arrival { 0% { opacity: 0; transform: translate(-24px,12px) rotate(-18deg) scale(.75); } 70% { transform: translate(3px,-3px) rotate(3deg) scale(1.04); } 100% { opacity: 1; transform: none; } }
+@keyframes number-arrival { from { opacity: 0; transform: translateX(24px); } }
 @keyframes fly-route { 0% { left: 0; transform: translateY(8px) rotate(-12deg); } 25% { transform: translateY(-72px) rotate(-7deg); } 50% { transform: translateY(-112px) rotate(0); } 75% { transform: translateY(-72px) rotate(7deg); } 100% { left: calc(100% - 40px); transform: translateY(5px) rotate(12deg); } }
 
 .billing-switch { display: inline-grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.03); margin-top: 32px; }
@@ -416,15 +422,6 @@ img, svg { max-width: 100%; display: block; }
   .reveal { opacity: 1; transform: none; }
 }
 
-/* Interactive service details */
-.service-more { margin-top: 20px; border-top: 1px solid var(--line); text-align: left; }
-.service-more summary { display: flex; justify-content: space-between; align-items: center; padding-top: 16px; color: #dce6f7; font-size: .76rem; font-weight: 800; cursor: pointer; list-style: none; }
-.service-more summary::-webkit-details-marker { display: none; }
-.service-more summary span { width: 25px; height: 25px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--blue); transition: transform .2s ease; }
-.service-more[open] summary span { transform: rotate(45deg); }
-.service-more p { animation: detail-open .35s ease both; }
-@keyframes detail-open { from { opacity: 0; transform: translateY(-7px); } }
-
 /* Illustrated trip comparison */
 .trip-example { background: radial-gradient(circle at 50% 0, rgba(131,174,246,.09), transparent 34rem); }
 .trip-card { width: min(100%, 850px); margin: 46px auto 0; overflow: hidden; border: 1px solid var(--line-strong); border-radius: 30px; background: linear-gradient(155deg, rgba(30,42,74,.86), rgba(10,15,28,.95)); box-shadow: var(--shadow); }
@@ -432,6 +429,7 @@ img, svg { max-width: 100%; display: block; }
 .trip-card-head small { display: block; color: var(--faint); font-size: .63rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
 .trip-card-head strong { display: block; margin-top: 3px; font-size: 1.08rem; }
 .trip-card-body { padding: 27px 25px 25px; }
+.trip-route-body { padding-bottom: 20px; }
 .trip-route { max-width: 610px; margin: 0 auto 28px; }
 .trip-route .airport:last-child { text-align: right; }
 .trip-route .airport small { display: block; margin-top: 5px; }
@@ -450,7 +448,18 @@ img, svg { max-width: 100%; display: block; }
 .partner-mark { position: relative; width: 92px; height: 28px; margin-top: 8px; display: grid; place-items: center; overflow: hidden; border: 1px solid var(--line); border-radius: 6px; color: #d9e6ff; background: #fff; font-size: .62rem; font-weight: 950; letter-spacing: .07em; }
 .partner-mark span { color: #173866; }
 .trip-card-foot { padding: 15px 25px; border-top: 1px solid var(--line); color: var(--faint); background: rgba(4,7,13,.3); font-size: .68rem; text-align: center; }
+.proposal-details { border-top: 1px solid var(--line); }
+.proposal-details > summary { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 17px 25px; list-style: none; cursor: pointer; background: rgba(255,255,255,.022); transition: background .2s ease; }
+.proposal-details > summary:hover { background: rgba(131,174,246,.065); }
+.proposal-details > summary::-webkit-details-marker { display: none; }
+.proposal-details > summary span { display: grid; }
+.proposal-details > summary small { color: var(--faint); font-size: .6rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.proposal-details > summary strong { font-size: .86rem; }
+.proposal-details > summary i { width: 32px; height: 32px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--blue); font-style: normal; transition: transform .25s ease; }
+.proposal-details[open] > summary i { transform: rotate(45deg); }
+.proposal-options { animation: proposal-open .42s ease both; border-top: 1px solid var(--line); }
 @keyframes option-board { to { left: 105%; } }
+@keyframes proposal-open { from { opacity: 0; transform: translateY(-10px); } }
 
 /* Airport travelator journey */
 .journey-line { width: 7px; border-inline: 1px solid rgba(131,174,246,.3); background: repeating-linear-gradient(to bottom,var(--blue) 0 12px,transparent 12px 25px); background-size:100% 25px; animation: travelator 1.1s linear infinite; }
@@ -460,7 +469,7 @@ img, svg { max-width: 100%; display: block; }
 /* Traveler notes */
 .traveler-note-band { border-block:1px solid var(--line); background:rgba(255,255,255,.015); }.traveler-note-band .container { display:flex; justify-content:space-between; gap:36px; align-items:center; }.traveler-note-band blockquote { position:relative; margin:0; padding-left:42px; }.traveler-note-band blockquote > span { position:absolute; left:0; top:-18px; color:var(--blue); font-size:4rem; }.traveler-note-band p { margin:0; font-size:clamp(1.2rem,2.3vw,1.8rem); font-weight:750; letter-spacing:-.03em; }.traveler-note-band footer { margin-top:5px; color:var(--faint); font-size:.68rem; text-transform:uppercase; letter-spacing:.1em; }
 .notes-hero { position:relative; overflow:hidden; min-height:560px; }.luggage-belt { position:absolute; left:0; right:0; bottom:55px; height:55px; border-block:1px solid var(--line); display:flex; gap:22vw; align-items:center; background:repeating-linear-gradient(90deg,transparent 0 40px,rgba(255,255,255,.04) 40px 42px); animation:belt-move 9s linear infinite; }.luggage-belt span { padding:6px 10px; border:1px solid var(--line-strong); border-radius:6px; background:#121a2a; color:var(--blue); }
-.note-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }.note-ticket { position:relative; min-height:260px; margin:0; padding:34px; overflow:hidden; border:1px solid var(--line); border-radius:24px; background:linear-gradient(145deg,rgba(28,39,70,.62),rgba(9,13,25,.94)); }.note-ticket::after { content:""; position:absolute; right:22px; top:0; bottom:0; border-right:1px dashed var(--line-strong); }.note-ticket .quote-mark { color:var(--blue); font-size:3.7rem; line-height:.7; }.note-ticket p { font-size:1.3rem; font-weight:720; line-height:1.35; }.note-ticket footer { position:absolute; left:34px; bottom:30px; display:grid; }.note-ticket small { color:var(--faint); }.note-ticket.visible { animation:ticket-arrival .65s ease both; }
+.note-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }.note-ticket { position:relative; min-height:285px; margin:0; padding:30px 42px 38px; overflow:hidden; border:1px solid rgba(239,216,155,.28); border-radius:18px 18px 42px 18px; background:linear-gradient(145deg,rgba(239,216,155,.1),rgba(18,24,38,.96)); box-shadow:0 18px 50px rgba(0,0,0,.2); }.note-ticket::before { content:""; position:absolute; left:20px; top:0; bottom:0; border-left:1px dashed rgba(239,216,155,.25); }.note-ticket::after { content:""; position:absolute; right:-18px; top:50%; width:35px; height:35px; transform:translateY(-50%); border:1px solid rgba(239,216,155,.3); border-radius:50%; background:var(--ink); }.tag-top { display:flex; justify-content:space-between; align-items:center; padding-bottom:12px; border-bottom:1px dashed rgba(239,216,155,.24); color:var(--gold); font-size:.62rem; font-weight:900; letter-spacing:.13em; }.tag-top strong { font:900 1.2rem "Courier New",monospace; }.tag-hole { position:absolute; left:8px; top:25px; width:10px; height:10px; border:1px solid rgba(239,216,155,.4); border-radius:50%; background:var(--ink); }.note-ticket p { margin:28px 0 76px; font-size:1.25rem; font-weight:720; line-height:1.4; }.note-ticket footer { position:absolute; left:42px; bottom:35px; display:grid; }.note-ticket small { color:var(--faint); }.tag-barcode { position:absolute; right:42px; bottom:34px; width:62px; height:25px; opacity:.45; background:repeating-linear-gradient(90deg,var(--gold) 0 2px,transparent 2px 5px); }.note-ticket.visible { animation:ticket-arrival .65s ease both; }
 @keyframes belt-move { to { transform:translateX(18vw); } } @keyframes ticket-arrival { from { transform:translateX(-28px) rotate(-1deg); opacity:0; } }
 
 @media (max-width:760px) {
