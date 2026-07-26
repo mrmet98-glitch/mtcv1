@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Monthly and annual retainer pricing for Midnight Travel Consulting, scaled by monthly flight-booking volume.">
+  <meta name="description" content="Consultation and ongoing travel advisory pricing from Midnight Travel Consulting.">
   <meta name="theme-color" content="#05070d">
+  <script>document.documentElement.dataset.theme = localStorage.getItem("mtc-theme") || "dark";</script>
   <title>Pricing | Midnight Travel Consulting</title>
-  <link rel="stylesheet" href="/assets/styles.css?v=20260726-3">
+  <link rel="stylesheet" href="/assets/styles.css?v=20260726-4">
 </head>
 <body data-page="pricing">
   <div id="site-header"></div>
@@ -14,9 +15,9 @@
   <main>
     <section class="page-hero">
       <div class="container">
-        <div class="eyebrow reveal">Pricing</div>
-        <h1 class="h1 reveal" style="margin-top:18px; max-width:1000px;">One clear retainer. <span class="gradient">Scaled to how much you actually travel.</span></h1>
-        <p class="lede reveal">The retainer is based on average monthly flight-booking volume—not a percentage of airfare. Ticket costs remain separate and are presented before booking.</p>
+        <div class="eyebrow reveal">Ways to work together</div>
+        <h1 class="h1 reveal" style="margin-top:18px; max-width:1000px;">Start with perspective. <span class="gradient">Add ongoing support when it fits.</span></h1>
+        <p class="lede reveal">The path begins with a free discovery call, followed—if useful—by a paid comprehensive consultation. A retainer is an optional next step, not the starting requirement.</p>
         <div class="billing-switch reveal" role="group" aria-label="Billing frequency">
           <button type="button" class="active" data-billing="monthly">Billed Monthly</button>
           <button type="button" data-billing="annual">Billed Annually <small>Save 15%</small></button>
@@ -26,8 +27,14 @@
 
     <section class="section-sm">
       <div class="container">
+        <div class="engagement-path reveal">
+          <article><span>01 · Free</span><strong>Discovery call</strong><p>Understand your company, travelers, preferences, habits, and current travel setup.</p></article>
+          <article><span>02 · One time</span><strong>Comprehensive consultation</strong><p>Receive specific recommendations and an organized travel playbook. Scope and fee follow discovery.</p></article>
+          <article><span>03 · Optional</span><strong>Ongoing retainer</strong><p>Put the recommendations to work through active advice, booking support, and continued oversight.</p></article>
+        </div>
+        <p class="path-note reveal"><strong>About potential savings:</strong> the comprehensive consultation may estimate areas of financial opportunity, but savings are not the product or a guaranteed outcome. Better organization and better-informed decisions come first.</p>
         <div class="pricing-tool reveal">
-          <div><strong>Which tier fits your current volume?</strong><p>Select your average monthly flight bookings and the closest tier will be highlighted.</p></div>
+          <div><strong>If ongoing support makes sense, which tier fits?</strong><p>Select average monthly flight bookings to preview the closest retainer tier.</p></div>
           <select id="volumeSelector" aria-label="Average monthly flight bookings">
             <option value="starter">1–5 flight bookings / month</option>
             <option value="standard">6–15 flight bookings / month</option>
@@ -122,7 +129,7 @@
             <div class="faq-item open"><button class="faq-q" aria-expanded="true"><span>Are airline tickets included in the retainer?</span><span>+</span></button><div class="faq-a" style="max-height:150px"><p>No. Airfare is separate and shown for approval before booking. The retainer covers research, recommendations, booking support, points analysis, and ongoing program strategy.</p></div></div>
             <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Why not charge a percentage of travel spend?</span><span>+</span></button><div class="faq-a"><p>A volume-based retainer keeps the consulting fee separate from the fare and avoids creating an incentive for more expensive tickets.</p></div></div>
             <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Is annual billing required?</span><span>+</span></button><div class="faq-a"><p>No. Monthly billing is available at every published tier. Annual billing is optional and reflects a 15% discount for the longer commitment.</p></div></div>
-            <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Is pricing finalized before the consultation?</span><span>+</span></button><div class="faq-a"><p>The published tiers are a strong starting point. The free consultation confirms volume, passenger count, complexity, response expectations, and any special requirements before a final proposal is issued.</p></div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Do I need to choose a retainer after the free call?</span><span>+</span></button><div class="faq-a"><p>No. The free discovery call leads to high-level direction. You can then choose a one-time comprehensive consultation. Only after that work do you decide whether ongoing retainer support fits.</p></div></div>
           </div>
         </div>
       </div>
@@ -134,7 +141,7 @@
   </main>
 
   <div id="site-footer"></div>
-  <script src="/assets/site.js?v=20260726-3" defer></script>
+  <script src="/assets/site.js?v=20260726-4" defer></script>
   <script src="/assets/pricing.js" defer></script>
 </body>
 </html>
