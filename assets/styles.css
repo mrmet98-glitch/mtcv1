@@ -563,3 +563,31 @@ img, svg { max-width: 100%; display: block; }
   .globe-legend { inset: auto 18px 17px; }
   .globe-legend span:last-child { display: none; }
 }
+
+/* Ambient hero globe */
+.hero-globe-wrap { position: absolute; z-index: 0; width: 720px; height: 720px; left: 50%; top: 50%; transform: translate(-50%,-50%); opacity: .58; pointer-events: none; filter: saturate(.9); }
+.hero-route-globe { width: 100%; height: 100%; display: block; }
+.hero-visual .route-card { z-index: 2; }
+.hero-route-status { position: absolute; z-index: 3; right: 4px; bottom: 10px; max-width: 245px; padding: 7px 10px; display: grid; justify-items: end; border-right: 1px solid rgba(131,174,246,.24); color: var(--faint); pointer-events: none; }
+.hero-route-status span { color: var(--blue); font-size: .54rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+.hero-route-status strong { margin-top: 2px; overflow: hidden; font: 700 .61rem "Courier New",monospace; text-overflow: ellipsis; white-space: nowrap; }
+:root[data-theme="light"] .hero-globe-wrap { opacity: .52; }
+
+/* Suitcase conveyor */
+.luggage-belt { overflow: hidden; animation: none; transform: none; }
+.luggage-belt-track { width: max-content; height: 100%; display: flex; align-items: flex-end; gap: 46px; padding: 0 23px 7px; animation: suitcase-belt 24s linear infinite; }
+.luggage-belt .suitcase { position: relative; flex: 0 0 auto; display: block; padding: 0; border: 1px solid rgba(131,174,246,.34); border-radius: 7px 7px 5px 5px; background: linear-gradient(135deg,#263754,#111a2b); box-shadow: inset 5px 0 rgba(255,255,255,.025),inset -5px 0 rgba(0,0,0,.12),0 5px 14px rgba(0,0,0,.25); color: transparent; }
+.luggage-belt .suitcase::before { content: ""; position: absolute; left: 50%; top: -7px; width: 15px; height: 7px; transform: translateX(-50%); border: 2px solid rgba(131,174,246,.38); border-bottom: 0; border-radius: 5px 5px 0 0; }
+.luggage-belt .suitcase::after { content: ""; position: absolute; left: 5px; right: 5px; top: 7px; bottom: 7px; border-inline: 1px solid rgba(255,255,255,.07); box-shadow: inset 6px 0 rgba(255,255,255,.025),inset -6px 0 rgba(0,0,0,.08); }
+.luggage-belt .suitcase i::before,.luggage-belt .suitcase i::after { content: ""; position: absolute; bottom: -4px; width: 4px; height: 4px; border-radius: 50%; background: #66758e; }
+.luggage-belt .suitcase i::before { left: 5px; }.luggage-belt .suitcase i::after { right: 5px; }
+.luggage-belt .case-tall { width: 33px; height: 42px; }.luggage-belt .case-wide { width: 43px; height: 32px; border-color: rgba(178,156,255,.34); background: linear-gradient(135deg,#352f52,#161628); }.luggage-belt .case-carry { width: 29px; height: 35px; border-color: rgba(112,222,209,.3); background: linear-gradient(135deg,#21434a,#101e24); }
+.luggage-belt .suitcase:nth-child(4n) { transform: rotate(2deg); }.luggage-belt .suitcase:nth-child(5n) { transform: rotate(-2deg); }
+:root[data-theme="light"] .luggage-belt .suitcase { background: linear-gradient(135deg,#7890b2,#e0e8f4); box-shadow: inset 5px 0 rgba(255,255,255,.2),inset -5px 0 rgba(39,62,95,.1),0 5px 14px rgba(38,55,82,.14); }
+@keyframes suitcase-belt { to { transform: translateX(calc(-50% - 23px)); } }
+
+@media (max-width:760px) {
+  .hero-globe-wrap { width: 580px; height: 580px; opacity: .5; }
+  .hero-route-status { right: 10px; bottom: 0; }
+  .luggage-belt-track { gap: 34px; animation-duration: 20s; }
+}
