@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Request a free travel consultation with Midnight Travel Consulting.">
   <meta name="theme-color" content="#05070d">
+  <script>document.documentElement.dataset.theme = localStorage.getItem("mtc-theme") || "dark";</script>
   <title>Free Consultation | Midnight Travel Consulting</title>
-  <link rel="stylesheet" href="/assets/styles.css?v=20260726-3">
+  <link rel="stylesheet" href="/assets/styles.css?v=20260726-4">
 </head>
 <body data-page="consultation">
   <div id="site-header"></div>
@@ -15,8 +16,8 @@
     <section class="page-hero">
       <div class="container">
         <div class="eyebrow reveal">Free Consultation Intake</div>
-        <h1 class="h1 reveal" style="margin-top:18px; max-width:1050px;">Let’s get the basics down <span class="gradient">before we build the proposal.</span></h1>
-        <p class="lede reveal">This is not a quote or contract. It is a short KYC-style intake so the free consultation can focus on the parts of your travel program that actually matter.</p>
+        <h1 class="h1 reveal" style="margin-top:18px; max-width:1050px;">Tell me how you travel <span class="gradient">before I tell you what I think.</span></h1>
+        <p class="lede reveal">A short intake gives the free discovery call a useful starting point. It is not a quote, contract, or full recommendation.</p>
       </div>
     </section>
 
@@ -24,11 +25,11 @@
       <div class="container form-shell">
         <aside class="intake-side reveal">
           <div class="eyebrow">What Happens Next</div>
-          <h2 class="h2" style="margin-top:16px; font-size:clamp(2.2rem,4vw,4rem);">A useful first call, not a generic sales pitch.</h2>
-          <p>After the intake is reviewed, the next step is a free consultation to understand routes, travelers, decision-making, current accounts, and service expectations.</p>
+          <h2 class="h2" style="margin-top:16px; font-size:clamp(2.2rem,4vw,4rem);">A conversation before a recommendation.</h2>
+          <p>We will talk through your company, travelers, preferences, recurring routes, current accounts, booking habits, and the places where travel feels disorganized.</p>
           <div class="call-card">
-            <strong>No pricing is charged here.</strong>
-            <p>The published pricing page provides a starting point. A final recommendation comes only after the consultation.</p>
+            <strong>What comes back is high level.</strong>
+            <p>After the call, I will outline what deserves attention and whether a paid comprehensive consultation would be useful. Detailed recommendations come in that paid engagement—not on the discovery call.</p>
           </div>
           <div class="tags" style="margin-top:22px"><span>Usually 3–5 minutes</span><span>No commitment</span><span>Private intake</span></div>
         </aside>
@@ -77,17 +78,18 @@
           </section>
 
           <section class="form-section">
-            <h2>What Would You Like to Improve?</h2>
+            <h2>What Should Work Better?</h2>
             <span class="question-label">Choose any that apply.</span>
             <div class="choice-group">
               <label class="choice-chip"><input type="checkbox" name="goals" value="Save time booking"><span>Save time booking</span></label>
-              <label class="choice-chip"><input type="checkbox" name="goals" value="Lower travel costs"><span>Lower travel costs</span></label>
+              <label class="choice-chip"><input type="checkbox" name="goals" value="Organize traveler preferences"><span>Organize traveler preferences</span></label>
               <label class="choice-chip"><input type="checkbox" name="goals" value="Use points better"><span>Use points better</span></label>
               <label class="choice-chip"><input type="checkbox" name="goals" value="Earn more miles"><span>Earn more miles</span></label>
               <label class="choice-chip"><input type="checkbox" name="goals" value="Airline business programs"><span>Airline business programs</span></label>
               <label class="choice-chip"><input type="checkbox" name="goals" value="Improve card strategy"><span>Improve card strategy</span></label>
               <label class="choice-chip"><input type="checkbox" name="goals" value="Manage traveler accounts"><span>Manage traveler accounts</span></label>
               <label class="choice-chip"><input type="checkbox" name="goals" value="Handle complex travel"><span>Handle complex travel</span></label>
+              <label class="choice-chip"><input type="checkbox" name="goals" value="Create a consistent process"><span>Create a consistent process</span></label>
             </div>
             <div class="form-grid" style="margin-top:16px">
               <div class="field full"><label for="notes">Notes for the Consultation</label><textarea id="notes" name="notes" placeholder="Recurring routes, pain points, upcoming travel, current cards, loyalty accounts, booking problems, or anything else that would make the call more useful. Do not include payment card numbers or passport details."></textarea></div>
@@ -107,7 +109,7 @@
   </main>
 
   <div id="site-footer"></div>
-  <script src="/assets/site.js?v=20260726-3" defer></script>
+  <script src="/assets/site.js?v=20260726-4" defer></script>
   <script src="/assets/consultation.js" defer></script>
 </body>
 </html>
