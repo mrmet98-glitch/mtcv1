@@ -540,3 +540,26 @@ img, svg { max-width: 100%; display: block; }
   .engagement-path { grid-template-columns: 1fr; }
   .engagement-path article:not(:last-child)::after { content: "↓"; right: 22px; top: auto; bottom: -22px; transform: none; }
 }
+
+/* Animated cumulative route globe */
+.globe-shell { position: relative; min-height: 650px; margin-top: 48px; overflow: hidden; border: 1px solid var(--line-strong); border-radius: 30px; background: radial-gradient(circle at 50% 48%,rgba(131,174,246,.12),transparent 27rem),linear-gradient(155deg,rgba(20,30,52,.92),rgba(6,10,19,.98)); box-shadow: var(--shadow); }
+.globe-copy { position: absolute; z-index: 2; inset: 25px 28px auto; display: flex; justify-content: space-between; gap: 30px; pointer-events: none; }
+.globe-copy div { display: grid; }
+.globe-copy span { color: var(--blue); font-size: .66rem; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
+.globe-copy strong { margin-top: 5px; font: 800 .93rem "Courier New",monospace; }
+.globe-copy p { max-width: 270px; margin: 0; color: var(--faint); font-size: .7rem; text-align: right; }
+.travel-globe { position: absolute; inset: 62px 0 38px; width: 100%; height: calc(100% - 100px); cursor: grab; touch-action: none; }
+.travel-globe.dragging { cursor: grabbing; }
+.globe-legend { position: absolute; z-index: 2; inset: auto 28px 22px; display: flex; justify-content: space-between; gap: 20px; color: var(--faint); font-size: .64rem; pointer-events: none; }
+.globe-legend span:first-child { display: inline-flex; align-items: center; gap: 7px; }
+.globe-legend i { width: 18px; height: 1px; background: var(--blue); box-shadow: 0 0 8px var(--blue); }
+:root[data-theme="light"] .globe-shell { background: radial-gradient(circle at 50% 48%,rgba(56,107,183,.13),transparent 27rem),linear-gradient(155deg,rgba(255,255,255,.97),rgba(226,234,246,.98)); }
+
+@media (max-width:760px) {
+  .globe-shell { min-height: 510px; }
+  .globe-copy { inset: 20px 18px auto; display: grid; gap: 5px; }
+  .globe-copy p { text-align: left; }
+  .travel-globe { top: 88px; height: calc(100% - 128px); }
+  .globe-legend { inset: auto 18px 17px; }
+  .globe-legend span:last-child { display: none; }
+}

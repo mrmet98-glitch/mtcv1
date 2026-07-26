@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#05070d">
   <script>document.documentElement.dataset.theme = localStorage.getItem("mtc-theme") || "dark";</script>
   <title>Midnight Travel Consulting | Private Travel Desk</title>
-  <link rel="stylesheet" href="/assets/styles.css?v=20260726-4">
+  <link rel="stylesheet" href="/assets/styles.css?v=20260726-5">
 </head>
 <body data-page="home">
   <div id="site-header"></div>
@@ -93,6 +93,12 @@
         <h2 class="h2 reveal" style="margin-top:16px; max-width:820px;">What has moved through this desk so far.</h2>
         <p class="lede reveal">A practical track record across flight research, ticketing, trip planning, points redemptions, and traveler problem-solving.</p>
 
+        <div class="globe-shell reveal">
+          <div class="globe-copy"><div><span>Where Travel Has Taken Us</span><strong id="globeRouteLabel">JFK → LHR → BOM</strong></div><p>Routes collected across years of travel. Drag the globe to explore.</p></div>
+          <canvas id="travelGlobe" class="travel-globe" aria-label="Animated globe showing cumulative flight routes"></canvas>
+          <div class="globe-legend"><span><i></i> Cumulative routes</span><span>Drag to rotate · Animation loops</span></div>
+        </div>
+
         <div class="board-wrap reveal">
           <div class="board-marquee"><span>Departures — Midnight Travel Consulting</span><span>12:00 AM — All Flights Depart At Midnight</span></div>
           <div class="board-head"><span>Time</span><span>Flight #</span><span>Total</span><span>Destination</span><span>Status</span></div>
@@ -158,6 +164,8 @@
   </main>
 
   <div id="site-footer"></div>
-  <script src="/assets/site.js?v=20260726-4" defer></script>
+  <script src="/assets/site.js?v=20260726-5" defer></script>
+  <script src="/assets/routes.js?v=20260726-5" defer></script>
+  <script src="/assets/globe.js?v=20260726-5" defer></script>
 </body>
 </html>
