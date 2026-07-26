@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#05070d">
   <script>document.documentElement.dataset.theme = localStorage.getItem("mtc-theme") || "dark";</script>
   <title>Midnight Travel Consulting | Private Travel Desk</title>
-  <link rel="stylesheet" href="/assets/styles.css?v=20260726-5">
+  <link rel="stylesheet" href="/assets/styles.css?v=20260726-6">
 </head>
 <body data-page="home">
   <div id="site-header"></div>
@@ -31,7 +31,7 @@
         </div>
 
         <div class="hero-visual reveal" aria-label="Example flight recommendation">
-          <div class="orbit" aria-hidden="true"></div>
+          <div class="hero-globe-wrap" aria-hidden="true"><canvas class="hero-route-globe" data-route-globe="ambient"></canvas></div>
           <article class="route-card">
             <div class="route-head">
               <div><small>Sample recommendation</small><strong>New York → London</strong></div>
@@ -59,6 +59,7 @@
               </div>
             </div>
           </article>
+          <div class="hero-route-status" aria-hidden="true"><span>Route in motion</span><strong id="heroGlobeRouteLabel">JFK → LHR → BOM</strong></div>
         </div>
       </div>
     </section>
@@ -95,7 +96,7 @@
 
         <div class="globe-shell reveal">
           <div class="globe-copy"><div><span>Where Travel Has Taken Us</span><strong id="globeRouteLabel">JFK → LHR → BOM</strong></div><p>Routes collected across years of travel. Drag the globe to explore.</p></div>
-          <canvas id="travelGlobe" class="travel-globe" aria-label="Animated globe showing cumulative flight routes"></canvas>
+          <canvas id="travelGlobe" class="travel-globe" data-route-globe="interactive" aria-label="Animated globe showing cumulative flight routes"></canvas>
           <div class="globe-legend"><span><i></i> Cumulative routes</span><span>Drag to rotate · Animation loops</span></div>
         </div>
 
@@ -164,8 +165,8 @@
   </main>
 
   <div id="site-footer"></div>
-  <script src="/assets/site.js?v=20260726-5" defer></script>
-  <script src="/assets/routes.js?v=20260726-5" defer></script>
-  <script src="/assets/globe.js?v=20260726-5" defer></script>
+  <script src="/assets/site.js?v=20260726-6" defer></script>
+  <script src="/assets/routes.js?v=20260726-6" defer></script>
+  <script src="/assets/globe.js?v=20260726-6" defer></script>
 </body>
 </html>
