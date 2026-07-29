@@ -37,7 +37,12 @@
             <a href="/pricing/" class="${page === "pricing" ? "active" : ""}">Pricing</a>
           </div>
           <a class="btn btn-primary" href="/consultation/">Free Consultation <span aria-hidden="true">↗</span></a>
-          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" aria-pressed="false"><span aria-hidden="true">☀</span></button>
+          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
+            <span class="window-frame" aria-hidden="true">
+              <span class="window-view"></span>
+              <span class="window-shade"><span class="window-moon">🌙</span><span class="shade-handle"></span></span>
+            </span>
+          </button>
           <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
             <svg viewBox="0 0 24 24" width="19" fill="none" aria-hidden="true"><path d="M4 7.5h16M4 12h16M4 16.5h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
           </button>
@@ -99,17 +104,24 @@
 
   const updateThemeToggle = () => {
     const light = root.dataset.theme === "light";
-    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", light ? "#f4f7fc" : "#05070d");
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", light ? "#e7edf5" : "#05070d");
     themeToggle?.setAttribute("aria-pressed", String(light));
     themeToggle?.setAttribute("aria-label", light ? "Switch to dark mode" : "Switch to light mode");
-    if (themeToggle) themeToggle.querySelector("span").textContent = light ? "☾" : "☀";
   };
   updateThemeToggle();
   themeToggle?.addEventListener("click", () => {
     const nextTheme = root.dataset.theme === "light" ? "dark" : "light";
-    root.dataset.theme = nextTheme;
-    localStorage.setItem("mtc-theme", nextTheme);
-    updateThemeToggle();
+    const applyTheme = () => {
+      root.dataset.theme = nextTheme;
+      localStorage.setItem("mtc-theme", nextTheme);
+      updateThemeToggle();
+    };
+
+    if (document.startViewTransition && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.startViewTransition(applyTheme);
+    } else {
+      applyTheme();
+    }
   });
 
   const updateHeader = () => siteHeader?.classList.toggle("scrolled", window.scrollY > 10);
