@@ -39,8 +39,8 @@
           <a class="btn btn-primary" href="/consultation/">Free Consultation <span aria-hidden="true">↗</span></a>
           <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
             <span class="window-frame" aria-hidden="true">
-              <span class="window-view"><span class="window-sun">☀</span></span>
-              <span class="window-shade"><span class="shade-ridges"></span><span class="window-moon">🌙</span><span class="shade-handle"></span></span>
+              <span class="window-view"></span>
+              <span class="window-shade"><span class="window-moon">🌙</span><span class="shade-handle"></span></span>
             </span>
           </button>
           <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -111,9 +111,17 @@
   updateThemeToggle();
   themeToggle?.addEventListener("click", () => {
     const nextTheme = root.dataset.theme === "light" ? "dark" : "light";
-    root.dataset.theme = nextTheme;
-    localStorage.setItem("mtc-theme", nextTheme);
-    updateThemeToggle();
+    const applyTheme = () => {
+      root.dataset.theme = nextTheme;
+      localStorage.setItem("mtc-theme", nextTheme);
+      updateThemeToggle();
+    };
+
+    if (document.startViewTransition && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.startViewTransition(applyTheme);
+    } else {
+      applyTheme();
+    }
   });
 
   const updateHeader = () => siteHeader?.classList.toggle("scrolled", window.scrollY > 10);
